@@ -1,7 +1,4 @@
 <router-outlet>
-  <head>
-
-  </head>
 
   <header class="header">
     <div class="container">
@@ -30,12 +27,12 @@
             Products
           </h1>
           <ul class="product_list">
-            <li class="product_item">
+            <li *ngFor="let product of data"  class="product_item">
               <h2 class="item_caption">
-                Product
+                {{product.name}}
               </h2>
               <p class="item_price">
-                15$
+                {{product.price}}
               </p>
               <button class="item_btn">
                 Add to cart
