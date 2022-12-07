@@ -1,0 +1,262 @@
+:root{
+
+  --font-color: #000;
+
+  --header-bg: #B3B3B3;
+  --header-logo: #D9D9D9;
+
+  --product-bg: #F5F5F5;
+  --product-list-bg: #B3B3B3;
+  --product-btn-bg: #8B8B8B;
+
+}
+*{
+  font-family: 'Inter', sans-serif;
+}
+.container{
+  padding: 0 100px;
+}
+
+.header{
+  background: #B3B3B3;
+
+  padding: 25px 0;
+  &_list{
+    display: flex;
+    align-items: center;
+
+    gap: 48px;
+  }
+  &_list_link{
+    color: #000;
+
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+  }
+  &_logo{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+    background: #D9D9D9;
+
+    cursor: pointer;
+  }
+}
+
+.product{
+  background: #F5F5F5;
+
+  &_caption{
+    color: #000;
+
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 58px;
+
+    padding: 30px 0 60px;
+  }
+  &_list{
+    display: flex;
+    gap: 40px;
+
+    padding-bottom: 52px;
+  }
+  &_item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    padding:0 135px 0 24px;
+
+    width: 25%;
+    height: 270px;
+
+    background: #B3B3B3;
+  }
+  .item_caption{
+    color: #000;
+
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+  }
+  .item_price{
+    color: #000;
+
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+  }
+  .item_btn{
+    color: #000;
+    background: #8B8B8B;
+    border: none;
+
+    padding: 16px 0;
+
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+
+    cursor: pointer;
+  }
+  &_load{
+    display: flex;
+
+    margin: 0 auto;
+    padding: 16px 60px;
+
+    background: #8B8B8B;
+    color: #000;
+
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+
+    border: none;
+    cursor: pointer;
+  }
+  &_admin{
+    display: flex;
+    align-items: center;
+    gap: 45px;
+
+    color: #000;
+
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 44px;
+
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  &_admin_arrow{
+    display: block;
+
+    width: 15px;
+    height: 15px;
+    margin-top: 5px;
+
+    border-top: 2px solid #000;
+    border-left: 2px solid #000;
+
+    transform: rotate(135deg);
+  }
+  &_admin_arrow::after{
+    content: "";
+    left: 0;
+    top: 0;
+    display: block;
+
+    width: 2px;
+    height: 45px;
+
+    background-color: black;
+    transform: rotate(-45deg) translate(15px, 4px);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+a{
+  text-decoration: none;
+}
+li{
+  list-style: none;
+}
+ul{
+  padding: 0;
+  margin: 0;
+}
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+html{
+  scroll-behavior: smooth;
+}
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  //overflow-x: hidden ;
+}
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
