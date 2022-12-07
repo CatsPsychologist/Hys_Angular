@@ -8,7 +8,7 @@ console.log(data)
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  data = data;
+  public data = data;
   title = 'project';
 }
 
