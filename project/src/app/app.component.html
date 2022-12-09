@@ -29,7 +29,7 @@
             Products
           </h1>
           <ul class="product_list">
-            <li *ngFor="let product of data"  class="product_item">
+            <li *ngFor="let product of products"  class="product_item">
               <h2 class="item_caption">
                 {{product.name}}
               </h2>
@@ -47,11 +47,12 @@
 
         </div>
       </div>
-      <button class="product_admin">
-        Admin
-        <span class="product_admin_arrow"></span>
-      </button>
+
     </section>
+    <button class="product_admin">
+      Admin
+      <span class="product_admin_arrow"></span>
+    </button>
 
   </main>
 
