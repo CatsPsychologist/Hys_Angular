@@ -5,12 +5,15 @@ import {ProductsComponent} from "./products.component";
 
 
 @NgModule({
-  declarations: [
-    ProductsComponent
-  ],
-  imports: [
-    CommonModule,
-    ProductsRoutingModule
-  ]
+    declarations: [
+        ProductsComponent
+    ],
+    exports: [
+        ProductsComponent
+    ],
+    imports: [
+        CommonModule,
+        ProductsRoutingModule
+    ]
 })
 export class ProductsModule { }
