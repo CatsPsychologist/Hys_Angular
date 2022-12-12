@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BtnAdminComponent } from './btn-admin.component';
+import { ProductCardComponent } from './product-card.component';
 
-describe('BtnAdminComponent', () => {
-  let component: BtnAdminComponent;
-  let fixture: ComponentFixture<BtnAdminComponent>;
+describe('ProductCardComponent', () => {
+  let component: ProductCardComponent;
+  let fixture: ComponentFixture<ProductCardComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BtnAdminComponent ]
+      declarations: [ ProductCardComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(BtnAdminComponent);
+    fixture = TestBed.createComponent(ProductCardComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

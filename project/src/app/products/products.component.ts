@@ -7,7 +7,8 @@ import {Products } from "../models/products_interaface";
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent{
-
+  
   @Input() products: Products[];
+
 
 }

@@ -6,15 +6,15 @@
       </h1>
       <ul class="product_list">
         <li *ngFor="let product of products"  class="product_item">
-          <h2 class="item_caption">
-            {{product.name}}
-          </h2>
-          <p class="item_price">
-            {{product.price}}
-          </p>
-          <button class="item_btn">
-            Add to cart
-          </button>
+            <h2  class="item_caption">
+              {{product.name}}
+            </h2>
+            <p class="item_price">
+              {{product.price}}
+            </p>
+            <button class="item_btn">
+              Add to cart
+            </button>
         </li>
       </ul>
       <button class="product_load">
