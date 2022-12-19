@@ -1,5 +1,6 @@
 export interface Products{
-  id:number,
-  name:string,
-  price:number
+  id: number,
+  name: string,
+  price: number,
+  isChosen: boolean
 }

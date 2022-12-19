@@ -12,12 +12,13 @@
           <p class="item_price">
             {{product.price}}
           </p>
-          <button class="item_btn">
-            Add to cart
+          <button class="item_btn" (click)="addToCart(product)">
+            {{product.isChosen ? 'remove' : 'add' }}
           </button>
         </li>
+
       </ul>
-      <button class="product_load">
+      <button class="product_load" >
         Load more
       </button>
     </div>

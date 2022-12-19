@@ -12,7 +12,7 @@ import {CartService} from "../shared/services/cart.service";
 export class ProductComponent implements OnInit{
   public products:Products[] = products;
   public id: any;
-  public btnValue: string = 'Add to cart';
+  items: any;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,9 +23,12 @@ export class ProductComponent implements OnInit{
      this.id = parseInt(this.route.snapshot.paramMap.get('id')!) - 1;
   }
   addToCart(product: Products) {
-    this.btnValue = 'Remove from cart';
+    product.isChosen = !product.isChosen;
     this.cartService.addToCart(product);
 
+    if(!product.isChosen){
+      this.items = this.cartService.clearCartItem(product.id);
+    }
   }
 
 }

@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {CartService} from "../shared/services/cart.service";
+import {products} from "../../../shared/mock/products";
 import {Products} from "../../../shared/models/products.interface";
 
 @Component({
@@ -7,18 +8,22 @@ import {Products} from "../../../shared/models/products.interface";
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent {
-
-  items = this.service.getItems();
+export class CartComponent implements OnInit{
+   public products:Products[] = products;
+   items : any ;
 
   constructor(
-    private service : CartService,
+    private cartService : CartService,
 
   ) {}
+  ngOnInit(){
+    this.items = this.cartService.getItems();
+  }
 
-  clearCartItem(){
-    console.log('clear')
-    this.service.clearCartItem();
+  clearCartItem(id : number){
+
+    this.items = this.cartService.clearCartItem(id);
+    products[id - 1].isChosen = false;
   }
 
 }

@@ -9,7 +9,7 @@
     {{products[id].price}}
   </p>
   <button class="item_btn" (click)="addToCart(products[id])">
-    {{btnValue}}
+    {{products[id].isChosen ? 'remove' : 'add' }}
   </button>
 </div>
 

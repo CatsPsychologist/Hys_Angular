@@ -16,9 +16,8 @@ export class CartService {
     return this.items;
   }
 
-
-  clearCartItem() {
-    this.items = [];
+  clearCartItem(id: number) {
+    this.items = this.items.filter(item => item.id !== id);
     return this.items;
   }
 }
