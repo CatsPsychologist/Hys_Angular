@@ -1,4 +1,15 @@
-<p>product works!</p>
-<h2 class="item_caption">
-  {{products[id].name}}
-</h2>
+<div class="container">
+  <h2>Products > Product {{id + 1}}</h2>
+  <h2>Product {{id + 1}}</h2>
+  <h2>Description</h2>
+  <h2 class="item_caption">
+    {{products[id].name}}
+  </h2>
+  <p class="item_price">
+    {{products[id].price}}
+  </p>
+  <button class="item_btn" (click)="addToCart(products[id])">
+    {{btnValue}}
+  </button>
+</div>
+
