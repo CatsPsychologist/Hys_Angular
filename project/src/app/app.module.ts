@@ -10,9 +10,6 @@ import {ProductsModule} from "./products/products.module";
     AppComponent,
   ],
     imports: [
-        BrowserModule,
-        AppRoutingModule,
-        ProductsModule
     ],
   providers: [],
   bootstrap: [AppComponent]
