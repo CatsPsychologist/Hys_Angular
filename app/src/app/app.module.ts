@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 
 // import ErrorsModule
 // import { ErrorsComponent } from './pages/errors/errors.component';
-import {ShopModule} from "./pages/shop/shop.module";
 import {SharedModule} from "./pages/shop/shared/shared.module";
 
 @NgModule({
@@ -17,10 +16,10 @@ import {SharedModule} from "./pages/shop/shared/shared.module";
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    ShopModule,
-    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}

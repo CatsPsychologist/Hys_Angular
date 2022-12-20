@@ -9,6 +9,7 @@ import { ProductComponent } from './product/product.component';
 import { SharedModule} from "./shared/shared.module";
 import {ShopComponent} from "./shop.component";
 import {CartService} from "./shared/services/cart.service";
+import {ShopRoutingModule} from "./shop-routing.module";
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import {CartService} from "./shared/services/cart.service";
   ],
   imports: [
     CommonModule,
-    RouterModule,
+    ShopRoutingModule,
     SharedModule
   ],
   providers: [

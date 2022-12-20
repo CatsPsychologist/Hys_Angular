@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import {products} from "./shared/mock/products";
-import {Products} from './shared/models/products.interface'
 
 @Component({
   selector: 'app-root',
@@ -9,9 +7,5 @@ import {Products} from './shared/models/products.interface'
 })
 export class AppComponent {
   title = 'app';
-  public products:Products[] = products;
 
-  ngOnInit() : void{
-    this.products = products;
-  }
 }
