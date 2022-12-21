@@ -12,6 +12,7 @@ export class CartComponent implements OnInit{
    public products:Products[] = products;
    items : any ;
 
+
   constructor(
     private cartService : CartService
 
@@ -25,5 +26,9 @@ export class CartComponent implements OnInit{
     this.items = this.cartService.clearCartItem(id);
     products[id - 1].isChosen = false;
   }
+
+
+
+
 
 }

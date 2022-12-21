@@ -12,7 +12,8 @@ export class TooltipComponent implements OnInit{
   public products:Products[] = products;
   items : any ;
   showCart: boolean;
-  public cartTotal = 0;
+  // public cartTotal = 0;
+
 
 
   constructor(
@@ -30,5 +31,12 @@ export class TooltipComponent implements OnInit{
     this.items = this.cartService.clearCartItem(id);
     products[id - 1].isChosen = false;
   }
+
+  // calcCartTotal() {
+  //   this.cartTotal = 0
+  //   this.products.forEach(product => {
+  //     this.cartTotal += (1 * product.price)
+  //   })
+  // }
 
 }

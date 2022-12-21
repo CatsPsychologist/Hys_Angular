@@ -19,6 +19,6 @@ export class CartService {
   clearCartItem(id: number) {
     this.items = this.items.filter(item => item.id !== id);
     return this.getItems()
-
   }
+
 }

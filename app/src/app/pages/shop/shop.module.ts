@@ -21,7 +21,6 @@ import {ShopRoutingModule} from "./shop-routing.module";
   ],
     exports: [
         ShopComponent,
-
     ],
   imports: [
     CommonModule,

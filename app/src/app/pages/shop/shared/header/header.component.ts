@@ -13,6 +13,14 @@ export class HeaderComponent {
   public products:Products[] = products;
   items : any ;
   showCart: boolean;
+  public toolTip: string = 'toolHide';
+
+  toolShow(){
+    this.toolTip = 'toolShow';
+  }
+  toolHide(){
+    this.toolTip = 'toolHide'
+  }
 
 
   constructor(

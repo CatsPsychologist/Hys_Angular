@@ -24,5 +24,10 @@
 
     cursor: pointer;
   }
-
+  .toolHide{
+    display: none;
+  }
+  .toolShow{
+    display: block;
+  }
 }

@@ -2,5 +2,6 @@ export interface Products{
   id: number,
   name: string,
   price: number,
-  isChosen: boolean
+  isChosen: boolean,
+  amount: number
 }
