@@ -27,8 +27,4 @@ export class CartComponent implements OnInit{
     products[id - 1].isChosen = false;
   }
 
-
-
-
-
 }

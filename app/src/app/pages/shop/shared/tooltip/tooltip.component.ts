@@ -11,17 +11,12 @@ import {products} from "../../../../shared/mock/products";
 export class TooltipComponent implements OnInit{
   public products:Products[] = products;
   items : any ;
-  showCart: boolean;
-  // public cartTotal = 0;
-
-
+  public cartTotal = 0;
 
   constructor(
     private cartService : CartService,
 
-  ) {
-    this.showCart = false;
-  }
+  ) {  }
 
   ngOnInit(){
     this.items = this.cartService.getItems();
