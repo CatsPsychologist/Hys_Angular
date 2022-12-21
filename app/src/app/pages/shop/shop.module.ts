@@ -19,13 +19,15 @@ import {ShopRoutingModule} from "./shop-routing.module";
     ProductsComponent,
     ProductComponent
   ],
-  exports: [
-    ShopComponent,
-  ],
+    exports: [
+        ShopComponent,
+
+    ],
   imports: [
     CommonModule,
     ShopRoutingModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   providers: [
     CartService

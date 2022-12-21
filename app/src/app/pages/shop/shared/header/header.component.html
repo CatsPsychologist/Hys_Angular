@@ -8,8 +8,9 @@
         <li class="header_list_item">
           <a [routerLink]="['/products']" class="header_list_link">Products</a>
         </li>
-        <li class="header_list_item">
+        <li (mouseover)="showCart=true" (mouseout)="showCart=true" class="header_list_item">
           <a [routerLink]="['/cart']" class="header_list_link">Cart</a>
+           <app-tooltip *ngIf="showCart" ></app-tooltip>
         </li>
       </ul>
     </nav>

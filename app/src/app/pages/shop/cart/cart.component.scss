@@ -73,5 +73,11 @@
   .item_caption{
     cursor: pointer;
   }
+  .cart_amount{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
 }
 

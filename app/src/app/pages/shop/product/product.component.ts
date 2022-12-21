@@ -24,10 +24,10 @@ export class ProductComponent implements OnInit{
   }
   addToCart(product: Products) {
     product.isChosen = !product.isChosen;
-    this.cartService.addToCart(product);
-
-    if(!product.isChosen){
-      this.items = this.cartService.clearCartItem(product.id);
+    if(product.isChosen){
+      this.cartService.addToCart(product);
+    }else {
+      this.items = this.cartService.clearCartItem(product.id)
     }
   }
 

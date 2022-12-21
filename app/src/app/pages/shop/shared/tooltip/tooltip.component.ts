@@ -1,24 +1,25 @@
 import {Component, OnInit} from '@angular/core';
-import {products} from "../../../../shared/mock/products";
-import {Products} from "../../../../shared/models/products.interface";
 import {CartService} from "../services/cart.service";
-
+import {Products} from "../../../../shared/models/products.interface";
+import {products} from "../../../../shared/mock/products";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'app-tooltip',
+  templateUrl: './tooltip.component.html',
+  styleUrls: ['./tooltip.component.scss']
 })
-export class HeaderComponent {
+export class TooltipComponent implements OnInit{
   public products:Products[] = products;
   items : any ;
   showCart: boolean;
+  public cartTotal = 0;
 
 
   constructor(
     private cartService : CartService,
+
   ) {
-    this.showCart = false
+    this.showCart = false;
   }
 
   ngOnInit(){
