@@ -14,6 +14,7 @@ export class ProductComponent implements OnInit{
   public id: any;
   items: any;
 
+
   constructor(
     private route: ActivatedRoute,
     private cartService: CartService
@@ -29,6 +30,8 @@ export class ProductComponent implements OnInit{
     }else {
       this.items = this.cartService.clearCartItem(product.id)
     }
+
   }
+
 
 }

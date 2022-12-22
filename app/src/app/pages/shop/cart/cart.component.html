@@ -4,6 +4,10 @@
       <h1 class="cart_caption">
         Cart
       </h1>
+      <p>
+        Total :
+          {{total}}
+      </p>
       <ul class="cart_list">
         <li *ngFor="let item of items"  class="cart_item">
           <h2 [routerLink]="['/products',item.id]" class="item_caption">

@@ -10,6 +10,12 @@ export class CartService {
 
   addToCart(product: Products) {
     this.items.push(product);
+    this.getTotal(this.items);
+  }
+
+  getTotal(productArr : Products[]): number{
+    console.log(productArr.reduce((acc, product) => acc + product.price, 0))
+    return productArr.reduce((acc, product) => acc + product.price, 0)
   }
 
   getItems() {
@@ -20,5 +26,6 @@ export class CartService {
     this.items = this.items.filter(item => item.id !== id);
     return this.getItems()
   }
+
 
 }

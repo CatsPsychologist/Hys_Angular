@@ -28,7 +28,6 @@ export class TooltipComponent implements OnInit{
   }
 
   // calcCartTotal() {
-  //   this.cartTotal = 0
   //   this.products.forEach(product => {
   //     this.cartTotal += (1 * product.price)
   //   })

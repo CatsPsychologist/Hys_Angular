@@ -12,6 +12,7 @@ export class ProductsComponent implements OnInit{
   public products:Products[] = products;
   items : any ;
 
+
   constructor(
     private cartService: CartService
   ) {}
@@ -27,5 +28,6 @@ export class ProductsComponent implements OnInit{
     }else {
       this.items = this.cartService.clearCartItem(product.id)
     }
+
   }
 }

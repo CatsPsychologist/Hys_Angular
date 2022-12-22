@@ -11,10 +11,10 @@ import {Products} from "../../../shared/models/products.interface";
 export class CartComponent implements OnInit{
    public products:Products[] = products;
    items : any ;
-
+   total: any;
 
   constructor(
-    private cartService : CartService
+    private cartService : CartService,
 
   ) {}
   ngOnInit(){
@@ -25,6 +25,8 @@ export class CartComponent implements OnInit{
 
     this.items = this.cartService.clearCartItem(id);
     products[id - 1].isChosen = false;
+    // this.total = this.cartService.getTotal(this.items);
+
   }
 
 }
