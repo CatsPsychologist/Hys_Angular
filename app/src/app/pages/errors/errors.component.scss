@@ -1,0 +1,29 @@
+.error_wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 75vh;
+  .error_number{
+    font-weight: 400;
+    font-size: 128px;
+    line-height: 155px;
+  }
+  .error_text{
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 58px;
+  }
+  .error_to_home{
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+
+    background: #B3B3B3;
+    border: none;
+
+    padding: 15px 40px;
+    margin-top: 20px;
+    cursor: pointer;
+  }
+}

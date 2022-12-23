@@ -18,6 +18,7 @@ export class CartService {
   clearCartItem(product: Products){
     this.items = this.items.filter(item => item !== product);
     this.getTotal(this.items);
+    product.amount = 1;
     return this.getItems();
   }
 

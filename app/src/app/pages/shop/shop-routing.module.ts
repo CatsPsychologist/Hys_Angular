@@ -6,6 +6,7 @@ import {ShopComponent} from "./shop.component";
 import {CartComponent} from "./cart/cart.component";
 import {ProductComponent} from "./product/product.component";
 import {ProductsComponent} from "./products/products.component";
+import {ErrorsComponent} from "../errors/errors.component";
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
         pathMatch: 'full',
         component: ProductsComponent
       },
+      { path: '**',
+        pathMatch: 'full',
+        component: ErrorsComponent
+      }
     ]
   },
 ];
