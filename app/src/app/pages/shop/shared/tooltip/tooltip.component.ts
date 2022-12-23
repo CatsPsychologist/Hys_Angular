@@ -11,26 +11,21 @@ import {products} from "../../../../shared/mock/products";
 export class TooltipComponent implements OnInit{
   public products:Products[] = products;
   items : any ;
-  public cartTotal = 0;
+  total: any;
 
   constructor(
     private cartService : CartService,
 
-  ) {  }
+  ) {}
 
   ngOnInit(){
     this.items = this.cartService.getItems();
+    this.total = this.cartService.getTotal(this.items);
   }
 
-  clearCartItem(id : number){
-    this.items = this.cartService.clearCartItem(id);
-    products[id - 1].isChosen = false;
+  clearCartItem(product: Products){
+    this.items = this.cartService.clearCartItem(product);
+    product.isChosen = false;
   }
-
-  // calcCartTotal() {
-  //   this.products.forEach(product => {
-  //     this.cartTotal += (1 * product.price)
-  //   })
-  // }
 
 }

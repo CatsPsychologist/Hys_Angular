@@ -11,7 +11,7 @@ import {CartService} from "../shared/services/cart.service";
 export class ProductsComponent implements OnInit{
   public products:Products[] = products;
   items : any ;
-
+  total : any;
 
   constructor(
     private cartService: CartService
@@ -22,12 +22,16 @@ export class ProductsComponent implements OnInit{
   }
   addToCart(product: Products) {
     product.isChosen = !product.isChosen;
-
+  //
     if(product.isChosen){
       this.cartService.addToCart(product);
-    }else {
-      this.items = this.cartService.clearCartItem(product.id)
     }
-
+      else {
+      this.items = this.cartService.clearCartItem(product)
+    }
+  //   // console.log(this.items)
+  //
+  //   // this.total = this.cartService.getTotal(this.items)
+  //
   }
 }

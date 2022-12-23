@@ -16,6 +16,7 @@ export class HeaderComponent {
   public toolTip: string = 'toolHide';
 
   toolShow(){
+
     this.toolTip = 'toolShow';
   }
   toolHide(){
@@ -33,9 +34,9 @@ export class HeaderComponent {
     this.items = this.cartService.getItems();
   }
 
-  clearCartItem(id : number){
-    this.items = this.cartService.clearCartItem(id);
-    products[id - 1].isChosen = false;
-  }
+  // clearCartItem(id : number){
+  //   this.items = this.cartService.clearCartItem(id);
+  //   products[id - 1].isChosen = false;
+  // }
 
 }

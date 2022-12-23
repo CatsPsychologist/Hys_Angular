@@ -9,28 +9,28 @@ export const products = [
   {
     id: 2,
     name: 'Jeff',
-    price: 0.5,
+    price: 20,
     isChosen : false,
     amount: 1
   },
   {
     id: 3,
     name: 'Mark',
-    price: 49,
+    price: 30,
     isChosen : false,
     amount: 1
   },
   {
     id: 4,
     name: 'Jora',
-    price: 100,
+    price: 60,
     isChosen : false,
     amount: 1
   },
   {
     id: 5,
     name: 'Jora',
-    price: 20,
+    price: 40,
     isChosen : false,
     amount: 1
   }
