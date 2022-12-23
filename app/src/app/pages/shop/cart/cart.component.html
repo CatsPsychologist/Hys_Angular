@@ -10,22 +10,20 @@
       </p>
       <ul class="cart_list">
         <li *ngFor="let item of items"   class="cart_item">
-          <ng-container *ngIf="item.isChosen">
-              <h2 [routerLink]="['/products',item.id]" class="item_caption">
-                {{item.name}}
-              </h2>
-              <p class="item_price">
-                {{item.price}}
-              </p>
-              <button class="item_btn" (click)="clearCartItem(item)">
-                {{item.isChosen ? 'remove' : 'add' }}
-              </button>
-              <div class="cart_amount">
-                <button>+</button>
-                <p>1</p>
-                <button>-</button>
-              </div>
-          </ng-container>
+            <h2 [routerLink]="['/products',item.id]" class="item_caption">
+              {{item.name}}
+            </h2>
+            <p class="item_price">
+              {{item.price}}
+            </p>
+            <button class="item_btn" (click)="clearCartItem(item)">
+              {{item.isChosen ? 'remove' : 'add' }}
+            </button>
+            <div class="cart_amount">
+              <button (click)="cartCounter(item, 1)">+</button>
+              <p>{{item.amount}}</p>
+              <button (click)="cartCounter(item, -1)">-</button>
+            </div>
         </li>
       </ul>
     </div>

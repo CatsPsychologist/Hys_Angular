@@ -27,5 +27,11 @@ export class TooltipComponent implements OnInit{
     this.items = this.cartService.clearCartItem(product);
     product.isChosen = false;
   }
+  cartCounter(product: Products, num : number){
+    product.amount = product.amount + num;
+    if(product.amount === 0) return this.clearCartItem(product);
+
+    return this.cartService.cartCounter();
+  }
 
 }

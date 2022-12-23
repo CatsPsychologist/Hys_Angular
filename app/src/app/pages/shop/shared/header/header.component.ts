@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {products} from "../../../../shared/mock/products";
 import {Products} from "../../../../shared/models/products.interface";
 import {CartService} from "../services/cart.service";
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +16,8 @@ export class HeaderComponent {
   public toolTip: string = 'toolHide';
 
   toolShow(){
-
+    if(this.router.url === '/cart') return
+    // console.log(this.router.url)
     this.toolTip = 'toolShow';
   }
   toolHide(){
@@ -26,6 +27,7 @@ export class HeaderComponent {
 
   constructor(
     private cartService : CartService,
+    public router: Router
   ) {
     this.showCart = false
   }
@@ -33,10 +35,5 @@ export class HeaderComponent {
   ngOnInit(){
     this.items = this.cartService.getItems();
   }
-
-  // clearCartItem(id : number){
-  //   this.items = this.cartService.clearCartItem(id);
-  //   products[id - 1].isChosen = false;
-  // }
 
 }

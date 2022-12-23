@@ -1,4 +1,4 @@
-<div  class="cart_hover">
+<div  class="cart_hover" >
   <ul  class="cart_list">
     <li *ngFor="let item of items"  class="cart_item">
       <ng-container *ngIf="item.isChosen">
@@ -11,9 +11,9 @@
           </p>
         </div>
         <div class="cart_amount">
-          <button>+</button>
-          <p>1</p>
-          <button>-</button>
+          <button (click)="cartCounter(item, 1)">+</button>
+          <p>{{item.amount}}</p>
+          <button (click)="cartCounter(item, -1)">-</button>
         </div>
         <button class="item_btn" (click)="clearCartItem(item)">
           {{item.isChosen ? 'remove' : 'add' }}
@@ -25,4 +25,5 @@
     {{total | async}}
   </p>
 </div>
+
 

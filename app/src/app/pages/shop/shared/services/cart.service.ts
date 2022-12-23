@@ -15,7 +15,7 @@ export class CartService {
     this.getTotal(this.items);
   }
 
-  clearCartItem(product: Products) {
+  clearCartItem(product: Products){
     this.items = this.items.filter(item => item !== product);
     this.getTotal(this.items);
     return this.getItems();
@@ -23,7 +23,7 @@ export class CartService {
 
   getTotal(productArr : Products[]){
      this.cartTotal$.next(
-      productArr.reduce((acc, product) => acc + product.price, 0)
+      productArr.reduce((acc, product) => acc + product.price * product.amount, 0)
     )
     return this.getTotalObs()
 
@@ -34,5 +34,9 @@ export class CartService {
 
   getItems() {
     return this.items;
+  }
+
+  cartCounter(){
+    this.getTotal(this.items);
   }
 }
