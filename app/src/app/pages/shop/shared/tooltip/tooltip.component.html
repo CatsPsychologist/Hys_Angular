@@ -1,0 +1,29 @@
+<div  class="cart_hover" >
+  <ul  class="cart_list">
+    <li *ngFor="let item of items"  class="cart_item">
+      <ng-container *ngIf="item.isChosen">
+        <div class="item_info">
+          <h2 [routerLink]="['/products',item.id]" class="item_caption">
+            Product #{{item.id}}
+          </h2>
+          <p class="item_price">
+            {{item.price}}
+          </p>
+        </div>
+        <div class="cart_amount">
+          <button (click)="cartCounter(item, 1)">+</button>
+          <p>{{item.amount}}</p>
+          <button (click)="cartCounter(item, -1)">-</button>
+        </div>
+        <button class="item_btn" (click)="clearCartItem(item)">
+          {{item.isChosen ? 'remove' : 'add' }}
+        </button>
+      </ng-container>
+    </li>
+  </ul>
+  <p class="item_total">Total :
+    {{total$ | async}}
+  </p>
+</div>
+
+
