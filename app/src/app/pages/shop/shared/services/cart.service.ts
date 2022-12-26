@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Products} from "../../../../shared/models/products.interface";
 import {BehaviorSubject, Observable} from 'rxjs';
+import {LocalStorageService} from "./local-storage.service";
 
 @Injectable({
   providedIn: 'root'
@@ -8,11 +9,16 @@ import {BehaviorSubject, Observable} from 'rxjs';
 export class CartService {
 
   items: Products[] = [];
-  cartTotal$ = new BehaviorSubject<number>(0);
+  private cartTotal$ = new BehaviorSubject<number>(0);
+
+  constructor(
+    private localStorageService: LocalStorageService
+  ) {}
 
   addToCart(product: Products) {
     this.items.push(product);
     this.getTotal(this.items);
+    this.localStorageService.setData('cart products', this.items)
   }
 
   clearCartItem(product: Products){
@@ -38,6 +44,7 @@ export class CartService {
   }
 
   cartCounter(){
+
     this.getTotal(this.items);
   }
 }

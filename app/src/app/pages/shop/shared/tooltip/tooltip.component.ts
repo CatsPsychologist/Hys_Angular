@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CartService} from "../services/cart.service";
 import {Products} from "../../../../shared/models/products.interface";
 import {products} from "../../../../shared/mock/products";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-tooltip',
@@ -11,7 +12,8 @@ import {products} from "../../../../shared/mock/products";
 export class TooltipComponent implements OnInit{
   public products:Products[] = products;
   items : any ;
-  total: any;
+  // total : any;
+  total$: Observable<number>;
 
   constructor(
     private cartService : CartService,
@@ -20,7 +22,7 @@ export class TooltipComponent implements OnInit{
 
   ngOnInit(){
     this.items = this.cartService.getItems();
-    this.total = this.cartService.getTotal(this.items);
+    this.total$ = this.cartService.getTotal(this.items);
   }
 
   clearCartItem(product: Products){
