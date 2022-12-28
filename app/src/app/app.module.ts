@@ -7,10 +7,12 @@ import { AppComponent } from './app.component';
 // import ErrorsModule
 // import { ErrorsComponent } from './pages/errors/errors.component';
 import {SharedModule} from "./pages/shop/shared/shared.module";
+import { AdminComponent } from './pages/admin/admin.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    AdminComponent,
   ],
 
   imports: [
