@@ -1,1 +1,38 @@
-<p>products works!</p>
+<section class="admin_products">
+  <div class="container">
+    <h1 class="admin_products_title">Products</h1>
+    <div class="admin_products_table">
+      <div class="table_filters">
+        <input type="text" placeholder="Search...">
+        <div class="filter_group">
+          <button>Price more than</button>
+          <button>10</button>
+          <button>Apply</button>
+        </div>
+      </div>
+      <div class="table_options">
+        <button>Id</button>
+        <button>Name</button>
+        <button>Price</button>
+        <button>Add</button>
+      </div>
+      <ul class="table">
+        <li *ngFor="let product of products" class="table_item">
+          <p>{{product.id}}</p>
+          <p>{{product.name}}</p>
+          <p>{{product.price}}</p>
+          <div class="button_group">
+            <button>Edit</button>
+            <button>Delete</button>
+          </div>
+        </li>
+      </ul>
+      <div class="table_pages">
+        <p>5/10</p>
+
+        <button>+</button>
+        <button>-</button>
+      </div>
+    </div>
+  </div>
+</section>

@@ -20,7 +20,6 @@ import { TooltipComponent } from './tooltip/tooltip.component';
     imports: [
         CommonModule,
         RouterModule,
-
     ]
 })
 export class SharedModule { }
