@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {CartService} from "../shared/services/cart.service";
 import {products} from "../../../shared/mock/products";
 import {Products} from "../../../shared/models/products.interface";
-import { Router } from '@angular/router';
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-cart',
@@ -11,8 +11,8 @@ import { Router } from '@angular/router';
 })
 export class CartComponent implements OnInit{
    public products:Products[] = products;
-   items : any ;
-   total: any;
+   items : Products[] ;
+   total: Observable<number>;
 
   constructor(
     private cartService : CartService,

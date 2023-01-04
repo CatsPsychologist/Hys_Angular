@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import {products} from "../../../shared/mock/products";
 import {Products} from "../../../shared/models/products.interface";
 import {ActivatedRoute} from "@angular/router";
-import {CartService} from "../shared/services/cart.service";
 
 @Component({
   selector: 'app-product',
@@ -11,13 +10,11 @@ import {CartService} from "../shared/services/cart.service";
 })
 export class ProductComponent implements OnInit{
   public products:Products[] = products;
-  public id: any;
-  items: any;
-
+  public id: number;
+  items: Products[];
 
   constructor(
     private route: ActivatedRoute,
-    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -25,13 +22,6 @@ export class ProductComponent implements OnInit{
   }
   addToCart(product: Products) {
     product.isChosen = !product.isChosen;
-    // if(product.isChosen){
-    //   this.cartService.addToCart(product);
-    // }else {
-    //   this.items = this.cartService.clearCartItem(product.id)
-    // }
-
-  }
-
+    }
 
 }

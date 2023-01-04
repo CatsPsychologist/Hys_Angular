@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {products} from "../../../shared/mock/products";
 import {Products} from "../../../shared/models/products.interface";
 import {CartService} from "../shared/services/cart.service";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-products',
@@ -10,8 +11,8 @@ import {CartService} from "../shared/services/cart.service";
 })
 export class ProductsComponent implements OnInit{
   public products:Products[] = products;
-  items : any ;
-  total : any;
+  items : Products[] ;
+  total : Observable<number>;
 
   constructor(
     private cartService: CartService
@@ -22,16 +23,12 @@ export class ProductsComponent implements OnInit{
   }
   addToCart(product: Products) {
     product.isChosen = !product.isChosen;
-  //
+
     if(product.isChosen){
       this.cartService.addToCart(product);
     }
       else {
       this.items = this.cartService.clearCartItem(product)
     }
-  //   // console.log(this.items)
-  //
-  //   // this.total = this.cartService.getTotal(this.items)
-  //
   }
 }
