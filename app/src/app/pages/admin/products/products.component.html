@@ -1,37 +1,38 @@
 <section class="admin_products">
+<!--  <app-loader></app-loader>-->
   <div class="container">
     <h1 class="admin_products_title">Products</h1>
     <div class="admin_products_table">
       <div class="table_filters">
-        <input type="text" placeholder="Search...">
+        <input type="text" placeholder="Search..." class="filter table_input">
         <div class="filter_group">
-          <button>Price more than</button>
-          <button>10</button>
-          <button>Apply</button>
+          <button class="filter filter_price">Price more than</button>
+          <button class="filter">10</button>
+          <button class="filter">Apply</button>
         </div>
       </div>
       <div class="table_options">
-        <button>Id</button>
-        <button>Name</button>
-        <button>Price</button>
-        <button>Add</button>
+        <button class="option_filter">ID</button>
+        <button class="option_filter">Name</button>
+        <button class="option_filter">Price</button>
+        <button class="add_btn">Add</button>
       </div>
       <ul class="table">
         <li *ngFor="let product of products" class="table_item">
-          <p>{{product.id}}</p>
-          <p>{{product.name}}</p>
-          <p>{{product.price}}</p>
+          <p class="table_item_text">{{product.id}}</p>
+          <p class="table_item_text">{{product.name}}</p>
+          <p class="table_item_text">{{product.price}}</p>
           <div class="button_group">
-            <button>Edit</button>
-            <button>Delete</button>
+            <button class="btn btn_table">Ed</button>
+            <button class="btn btn_table">De</button>
           </div>
         </li>
       </ul>
       <div class="table_pages">
         <p>5/10</p>
 
-        <button>+</button>
-        <button>-</button>
+        <button class="btn_pages btn">+</button>
+        <button class="btn_pages btn">-</button>
       </div>
     </div>
   </div>
