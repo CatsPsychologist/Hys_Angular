@@ -1,5 +1,5 @@
 <section class="admin_products">
-<!--  <app-loader></app-loader>-->
+    <app-loader *ngIf="productsCall.length === 0"></app-loader>
   <div class="container">
     <h1 class="admin_products_title">Products</h1>
     <div class="admin_products_table">
@@ -18,7 +18,7 @@
         <button class="add_btn">Add</button>
       </div>
       <ul class="table">
-        <li *ngFor="let product of products" class="table_item">
+        <li *ngFor="let product of productsCall" class="table_item">
           <p class="table_item_text">{{product.id}}</p>
           <p class="table_item_text">{{product.name}}</p>
           <p class="table_item_text">{{product.price}}</p>
@@ -37,3 +37,4 @@
     </div>
   </div>
 </section>
+

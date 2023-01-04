@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {products} from "../../../shared/mock/products";
 import {Products} from "../../../shared/models/products.interface";
+import {BehaviorSubject, delay, of} from "rxjs";
 
 @Component({
   selector: 'app-products',
@@ -8,6 +9,21 @@ import {Products} from "../../../shared/models/products.interface";
   styleUrls: ['./products.component.scss']
 })
 
-export class ProductsComponent {
-  public products:Products[] = products;
+export class ProductsComponent implements OnInit{
+  public productsCall:Products[] = [];
+
+  private _productStream$ = new BehaviorSubject<Products[]>(products)
+  public productStream$ = this._productStream$.asObservable()
+
+  constructor() {
+
+  }
+
+  ngOnInit() {
+    of(products)
+      .pipe(delay(2000))
+      .subscribe(prod => this.productsCall = prod)
+
+  }
+
 }
