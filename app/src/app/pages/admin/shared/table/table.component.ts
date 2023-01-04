@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Products} from "../../../../shared/models/products.interface";
 @Component({
   selector: 'app-table',
@@ -6,5 +6,5 @@ import {Products} from "../../../../shared/models/products.interface";
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent {
-  public products:Products[] = [];
+  @Input() products:Products[] = [];
 }
