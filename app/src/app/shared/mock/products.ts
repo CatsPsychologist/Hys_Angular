@@ -33,5 +33,12 @@ export const products = [
     price: 40,
     isChosen : false,
     amount: 1
+  },
+  {
+    id: 6,
+    name: 'Michael',
+    price: 20,
+    isChosen : false,
+    amount: 1
   }
 ]

@@ -11,7 +11,7 @@ import {Observable} from "rxjs";
 })
 export class CartComponent implements OnInit{
    public products:Products[] = products;
-   items : Products[] ;
+   items : Products[];
    total: Observable<number>;
 
   constructor(

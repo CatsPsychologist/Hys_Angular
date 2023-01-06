@@ -48,6 +48,9 @@
   .table_input{
     padding-left: 16px;
   }
+  .apply_btn{
+    cursor: pointer;
+  }
   .filter{
     font-weight: 400;
     font-size: 24px;
@@ -55,6 +58,16 @@
     background: #D9D9D9;
     border: none;
     padding: 0 16px;
+
+  }
+  .filter_input{
+    width: 50px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 39px;
+    border: none;
+    background: #D9D9D9;
   }
   .filter_group{
     display: flex;
@@ -66,6 +79,7 @@
     font-size: 24px;
     line-height: 39px;
     background: none;
+    cursor: pointer;
   }
   .add_btn{
     margin-right: 50px;
@@ -95,4 +109,5 @@
   .btn_table{
     background: #B3B3B3;
   }
+
 }

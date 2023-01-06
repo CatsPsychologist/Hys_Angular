@@ -11,8 +11,7 @@ import {Observable} from "rxjs";
 })
 export class TooltipComponent implements OnInit{
   public products:Products[] = products;
-  items : any ;
-  // total : any;
+  items : Products[] ;
   total$: Observable<number>;
 
   constructor(

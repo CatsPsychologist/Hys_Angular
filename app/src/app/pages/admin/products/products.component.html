@@ -1,1 +1,4 @@
-<app-table [products]="productsCall" ></app-table>
+<app-table
+  (newItemEvent)="priceInputFilter($event)"
+  [products]="productsCall"
+></app-table>
