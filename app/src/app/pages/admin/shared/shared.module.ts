@@ -5,6 +5,12 @@ import { TableComponent } from './table/table.component';
 import { RouterModule } from '@angular/router';
 import { LoaderComponent } from './loader/loader.component';
 
+import {MatSortModule} from "@angular/material/sort";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatInputModule} from "@angular/material/input";
+import {MatTableModule} from "@angular/material/table";
+
 @NgModule({
   declarations: [
     NavComponent,
@@ -14,11 +20,22 @@ import { LoaderComponent } from './loader/loader.component';
   exports: [
     NavComponent,
     TableComponent,
-    LoaderComponent
+    LoaderComponent,
+    MatSortModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatInputModule
   ],
   imports: [
     CommonModule,
-    RouterModule
-  ]
+    RouterModule,
+    MatSortModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatPaginatorModule,
+    MatInputModule
+  ],
+
 })
 export class SharedModule { }

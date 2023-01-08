@@ -7,6 +7,7 @@ import { ProductsComponent } from './products/products.component';
 import {AdminComponent} from "./admin.component";
 import {SharedModule} from "./shared/shared.module";
 
+
 @NgModule({
   declarations: [
     AdminComponent,
@@ -16,10 +17,10 @@ import {SharedModule} from "./shared/shared.module";
   imports: [
     CommonModule,
     AdminRoutingModule,
-    SharedModule
+    SharedModule,
   ],
   exports: [
-    AdminComponent
+    AdminComponent,
   ]
 })
 export class AdminModule { }
