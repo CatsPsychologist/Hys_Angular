@@ -1,5 +1,4 @@
 <section class="admin_products">
-  <app-loader *ngIf="products.length === 0"></app-loader>
   <div class="container">
     <h1 class="admin_products_title">Products</h1>
     <div class="admin_products_table">
@@ -16,10 +15,11 @@
           >Apply</button>
         </div>
       </div>
-      <div class="table_options">
-        <button class="option_filter">ID</button>
-        <button class="option_filter">Name</button>
-        <button class="option_filter">Price</button>
+
+            <div class="table_options">
+        <button class="option_filter" (click)="idFilter(products)">ID</button>
+        <button class="option_filter" (click)="nameFilter(products)">Name</button>
+        <button class="option_filter" (click)="priceFilter(products)">Price</button>
         <button class="add_btn">Add</button>
       </div>
       <ul class="table">

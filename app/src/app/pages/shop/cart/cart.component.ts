@@ -12,7 +12,7 @@ import {Observable} from "rxjs";
 export class CartComponent implements OnInit{
    public products:Products[] = products;
    items : Products[];
-   total: Observable<number>;
+   total$: Observable<number>;
 
   constructor(
     private cartService : CartService,
@@ -20,7 +20,7 @@ export class CartComponent implements OnInit{
   ) {}
   ngOnInit(){
     this.items = this.cartService.getItems();
-    this.total = this.cartService.getTotal(this.items);
+    this.total$ = this.cartService.getTotal(this.items);
   }
 
   clearCartItem(product: Products){
