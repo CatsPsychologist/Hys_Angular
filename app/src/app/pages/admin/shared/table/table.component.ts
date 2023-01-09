@@ -11,53 +11,34 @@ import {MatTableDataSource} from '@angular/material/table';
   styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements AfterViewInit{
-  // @Input() products:Products[] = [];
+ // dataSource:Products[];
   // @Output() newItemEvent = new EventEmitter<{value : string, number : number}>()
-
 
   public products:Products[] = products;
 
   displayedColumns: string[] = ['id', 'name', 'price'];
-  dataSource: MatTableDataSource<Products>;
+  @Input()  tableProducts: MatTableDataSource<Products>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
   constructor() {
-    this.dataSource = new MatTableDataSource(products);
+    this.tableProducts = new MatTableDataSource(products);
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    this.tableProducts.paginator = this.paginator;
+    this.tableProducts.sort = this.sort;
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-    console.log(this.dataSource)
-    if (this.dataSource.paginator) {
-      this.dataSource.paginator.firstPage();
+    this.tableProducts.filter = filterValue.trim().toLowerCase();
+    console.log(this.tableProducts)
+    if (this.tableProducts.paginator) {
+      this.tableProducts.paginator.firstPage();
     }
   }
 
-  // logItem({value, number} : any){
-  //   this.newItemEvent.emit({value, number})
-  // }
-  //
-  // priceFilter(productArr : Products[]){
-  //   return this.filterService.priceFilter(productArr)
-  // }
-  //
-  // nameFilter(productArr : Products[]){
-  //   return this.filterService.nameFilter(productArr)
-  // }
-  //
-  // idFilter(productArr : Products[]){
-  //   return this.filterService.idFilter(productArr)
-  // }
-  // priceFilter(){
-  //   this.productsCall = this.FilterService.priceFilter(this.productsCall, 'less', 50)
-  // }
 
 }

@@ -11,21 +11,21 @@ import {BehaviorSubject, delay, Observable, of, tap} from "rxjs";
 })
 
 export class ProductsComponent implements OnInit{
-  public productsCall:Products[] = products;
+  public productsCall:Products[] = [];
   public isLoaded: boolean = false;
 
   constructor(
-    // private FilterService : FilterService
+
   ) {}
 
   ngOnInit() {
-    // of(products)
-    //   .pipe(delay(2000))
-    //   .subscribe(prod => {
-    //     console.log(prod)
-    //     this.productsCall = prod;
-    //     this.isLoaded = true
-    //   })
+    of(products)
+      .pipe(delay(2000))
+      .subscribe(prod => {
+        console.log(prod)
+        this.productsCall = prod;
+        this.isLoaded = true
+      })
 
   }
 
