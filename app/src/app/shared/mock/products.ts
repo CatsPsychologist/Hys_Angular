@@ -34,11 +34,11 @@ export const products = [
     isChosen : false,
     amount: 1
   },
-  {
-    id: 6,
-    name: 'Faggot',
-    price: 40,
-    isChosen : false,
-    amount: 1
-  }
+  // {
+  //   id: 6,
+  //   name: 'Fag',
+  //   price: 40,
+  //   isChosen : false,
+  //   amount: 1
+  // }
 ]

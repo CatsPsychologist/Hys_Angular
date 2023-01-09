@@ -5,7 +5,8 @@
   </mat-form-field>
 
   <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="tableProducts" matSort  class="mat-elevation-z8">
+    <table mat-table [dataSource]="tableProducts" matSort #mytable class="my-table mat-elevation-z8">
+
       <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
         <td mat-cell *matCellDef="let product"> {{product.id}} </td>
@@ -18,7 +19,21 @@
 
       <ng-container matColumnDef="price">
         <th mat-header-cell *matHeaderCellDef mat-sort-header> price </th>
-        <td mat-cell *matCellDef="let product"> {{product.price}} </td>
+        <td mat-cell *matCellDef="let product"> {{product.price}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let product" class="action-link">
+          <button (click)="openDialog('Update',product)">Edit</button>
+          |
+          <button (click)="openDialog('Delete',product)">Delete</button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="add_btn">
+        <th mat-header-cell *matHeaderCellDef><button (click)="openDialog('Add',{})">add</button> </th>
+        <td mat-cell *matCellDef="let product"> </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -29,47 +44,4 @@
   </div>
 </div>
 
-<!--<section class="admin_products">-->
-<!--  <div class="container">-->
-<!--    <h1 class="admin_products_title">Products</h1>-->
-<!--    <div class="admin_products_table">-->
-<!--      <div class="table_filters">-->
-<!--        <input type="text" placeholder="Search..." class="filter table_input">-->
-<!--        <div class="filter_group">-->
-<!--          <select class="filter" #optionValue>-->
-<!--            <option>Price more than</option>-->
-<!--            <option>Price less than</option>-->
-<!--          </select>-->
-<!--          <input class="filter_input" type="text" value="10"  width="20" #inputValue>-->
-<!--          <button class="filter apply_btn"-->
-<!--                  (click)="logItem({value : optionValue.value, number : +inputValue.value})"-->
-<!--          >Apply</button>-->
-<!--        </div>-->
-<!--      </div>-->
-
-<!--            <div class="table_options">-->
-<!--        <button class="option_filter" (click)="idFilter(products)">ID</button>-->
-<!--        <button class="option_filter" (click)="nameFilter(products)">Name</button>-->
-<!--        <button class="option_filter" (click)="priceFilter(products)">Price</button>-->
-<!--        <button class="add_btn">Add</button>-->
-<!--      </div>-->
-<!--      <ul class="table">-->
-<!--        <li *ngFor="let product of products" class="table_item">-->
-<!--          <p class="table_item_text">{{product.id}}</p>-->
-<!--          <p class="table_item_text">{{product.name}}</p>-->
-<!--          <p class="table_item_text">{{product.price}}</p>-->
-<!--          <div class="button_group">-->
-<!--            <button class="btn btn_table">Ed</button>-->
-<!--            <button class="btn btn_table">De</button>-->
-<!--          </div>-->
-<!--        </li>-->
-<!--      </ul>-->
-<!--      <div class="table_pages">-->
-<!--        <p>5/10</p>-->
-<!--        <button class="btn_pages btn">+</button>-->
-<!--        <button class="btn_pages btn">-</button>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>  -->
 

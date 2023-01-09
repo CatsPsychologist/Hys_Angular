@@ -22,7 +22,6 @@ export class ProductsComponent implements OnInit{
     of(products)
       .pipe(delay(2000))
       .subscribe(prod => {
-        console.log(prod)
         this.productsCall = prod;
         this.isLoaded = true
       })

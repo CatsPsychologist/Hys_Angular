@@ -10,12 +10,17 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatInputModule} from "@angular/material/input";
 import {MatTableModule} from "@angular/material/table";
+import {FormsModule} from "@angular/forms";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatButtonModule} from "@angular/material/button";
+import { DialogBoxComponent } from './dialog-box/dialog-box.component';
 
 @NgModule({
   declarations: [
     NavComponent,
     TableComponent,
-    LoaderComponent
+    LoaderComponent,
+    DialogBoxComponent
   ],
   exports: [
     NavComponent,
@@ -25,7 +30,10 @@ import {MatTableModule} from "@angular/material/table";
     MatTableModule,
     MatFormFieldModule,
     MatPaginatorModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    MatDialogModule,
+    MatButtonModule,
   ],
   imports: [
     CommonModule,
@@ -34,7 +42,10 @@ import {MatTableModule} from "@angular/material/table";
     MatTableModule,
     MatFormFieldModule,
     MatPaginatorModule,
-    MatInputModule
+    MatInputModule,
+    FormsModule,
+    MatDialogModule,
+    MatButtonModule,
   ],
 
 })
