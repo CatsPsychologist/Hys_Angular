@@ -78,6 +78,7 @@ export class TableComponent implements AfterViewInit, OnInit{
       .filter((value,key)=>{
       if(value.id == row_obj.id){
         value.name = row_obj.name;
+        value.price = row_obj.price;
       }
       return true;
     })
@@ -87,7 +88,7 @@ export class TableComponent implements AfterViewInit, OnInit{
    this.tableProducts.filteredData.push({
       id: this.tableProducts.filteredData.length + 1 ,
       name:row_obj.name,
-      price: 15,
+      price: row_obj.price,
       isChosen: false,
       amount: 1
     })
