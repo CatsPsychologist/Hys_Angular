@@ -2,7 +2,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import {products} from "../../../shared/mock/products";
 import {Products} from "../../../shared/models/products.interface";
 import {ActivatedRoute} from "@angular/router";
-import {CartService} from "../shared/services/cart.service";
 
 @Component({
   selector: 'app-product',
@@ -10,28 +9,21 @@ import {CartService} from "../shared/services/cart.service";
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit{
-  public products:Products[] = products;
-  public id: any;
-  items: any;
-
+  productCaption: string = 'Product'
+  singleProduct:Products[] = products;
+  public id: number;
+  items: Products[];
 
   constructor(
     private route: ActivatedRoute,
-    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
      this.id = parseInt(this.route.snapshot.paramMap.get('id')!) - 1;
+     this.singleProduct = products.slice(this.id , this.id + 1)
   }
   addToCart(product: Products) {
     product.isChosen = !product.isChosen;
-    // if(product.isChosen){
-    //   this.cartService.addToCart(product);
-    // }else {
-    //   this.items = this.cartService.clearCartItem(product.id)
-    // }
-
-  }
-
+    }
 
 }

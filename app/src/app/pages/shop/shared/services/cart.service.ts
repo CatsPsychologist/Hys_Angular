@@ -44,7 +44,6 @@ export class CartService {
   }
 
   cartCounter(){
-
     this.getTotal(this.items);
   }
 }

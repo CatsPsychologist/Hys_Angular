@@ -10,7 +10,7 @@
         </li>
         <li (mouseenter)="toolShow()" (mouseleave)="toolHide()" class="header_list_item">
           <a [routerLink]="['/cart']" class="header_list_link">Cart</a>
-          <ng-container *ngIf="this.router.url !== '/cart'">
+          <ng-container *ngIf="this.router.url !== '/cart'" >
            <app-tooltip [className]="toolTip" ></app-tooltip>
           </ng-container>
         </li>
