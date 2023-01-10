@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
+import {ErrorsComponent} from "./pages/errors/errors.component";
 const routes: Routes = [
   {
     path: '',
@@ -11,6 +11,10 @@ const routes: Routes = [
     path: 'admin',
     // pathMatch: 'full',
     loadChildren: () => import('./pages/admin/admin.module').then(m => m.AdminModule)
+  },
+  { path: '**',
+    pathMatch: 'full',
+    component: ErrorsComponent
   }
 ];
 

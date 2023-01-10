@@ -11,7 +11,6 @@ import {ShopComponent} from "./shop.component";
 import {CartService} from "./shared/services/cart.service";
 import {ShopRoutingModule} from "./shop-routing.module";
 
-
 @NgModule({
   declarations: [
     ShopComponent,
@@ -27,7 +26,7 @@ import {ShopRoutingModule} from "./shop-routing.module";
     CommonModule,
     ShopRoutingModule,
     SharedModule,
-    RouterModule
+    RouterModule,
   ],
   providers: [
     CartService

@@ -17,7 +17,6 @@ export class TableComponent implements AfterViewInit, OnInit{
   // dataSource:Products[];
   // @Output() newItemEvent = new EventEmitter<{value : string, number : number}>()
 
-  // public products:Products[] = products;
 
   displayedColumns: string[] = ['id', 'name', 'price', 'action', 'add_btn'];
 
