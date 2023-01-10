@@ -7,6 +7,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatTable} from "@angular/material/table";
 import {MatDialog} from "@angular/material/dialog"
 import {DialogBoxComponent} from "../dialog-box/dialog-box.component";
+import {ProductHTTPService} from "../services/product-http.service";
 
 @Component({
   selector: 'app-table',
@@ -27,7 +28,8 @@ export class TableComponent implements AfterViewInit, OnInit{
   @ViewChild(MatTable) table: MatTable<Products>;
 
   constructor(
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private httpService: ProductHTTPService
   ) {
     this.tableProducts = new MatTableDataSource(products);
   }
@@ -36,8 +38,11 @@ export class TableComponent implements AfterViewInit, OnInit{
     this.tableProducts.paginator = this.paginator;
     this.tableProducts.sort = this.sort;
   }
-  ngOnInit() {
 
+  ngOnInit() {
+    // this.httpService.getList().subscribe(productList => {
+    //   console.log(productList)
+    // })
   }
 
   applyFilter(event: Event) {

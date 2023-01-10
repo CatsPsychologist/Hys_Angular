@@ -6,7 +6,8 @@
       </h1>
       <ul class="product_list">
         <li *ngFor="let product of products"  class="product_item">
-          <h2 [routerLink]="['/products',product.id]"  class="item_caption">
+          <h2 class="item_caption"
+            [routerLink]="['/products',product.identifier]" >
             {{product.name}}
           </h2>
           <p class="item_price">
@@ -23,3 +24,4 @@
     </div>
   </div>
 </section>
+

@@ -7,7 +7,7 @@ import {SharedModule} from "./pages/shop/shared/shared.module";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import { UahPipe } from './shared/pipes/uah.pipe';
 import {ErrorsModule} from "./pages/errors/errors.module";
-
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import {ErrorsModule} from "./pages/errors/errors.module";
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
-    ErrorsModule
+    ErrorsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
