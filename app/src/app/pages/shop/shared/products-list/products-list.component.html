@@ -10,7 +10,7 @@
             {{product.name}}
           </h2>
           <p class="item_price">
-            {{product.price}}
+            {{product.price | currency: "₴"}}
           </p>
           <button class="item_btn" (click)="addToCart(product)">
             {{product.isChosen ? 'remove' : 'add' }}

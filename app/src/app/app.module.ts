@@ -14,10 +14,12 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatInputModule} from "@angular/material/input";
 import {MatTableModule} from "@angular/material/table";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { UahPipe } from './shared/pipes/uah.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
+    UahPipe,
   ],
   imports: [
     // BrowserModule,
