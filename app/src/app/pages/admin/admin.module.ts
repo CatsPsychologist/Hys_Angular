@@ -19,8 +19,9 @@ import {SharedModule} from "./shared/shared.module";
     AdminRoutingModule,
     SharedModule,
   ],
-  exports: [
-    AdminComponent,
-  ]
+    exports: [
+        AdminComponent,
+        ProductsComponent,
+    ]
 })
 export class AdminModule { }

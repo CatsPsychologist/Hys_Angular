@@ -5,17 +5,20 @@ import { RouterModule } from '@angular/router';
 import { ButtonComponent } from './button/button.component';
 import { HeaderComponent } from './header/header.component';
 import { TooltipComponent } from './tooltip/tooltip.component';
+import { ProductsListComponent } from './products-list/products-list.component';
 
 
 @NgModule({
     declarations: [
         ButtonComponent,
         HeaderComponent,
-        TooltipComponent
+        TooltipComponent,
+        ProductsListComponent
     ],
     exports: [
         HeaderComponent,
-        ButtonComponent
+        ButtonComponent,
+        ProductsListComponent
     ],
     imports: [
         CommonModule,

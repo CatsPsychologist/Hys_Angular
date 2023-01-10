@@ -44,7 +44,6 @@ export class TableComponent implements AfterViewInit, OnInit{
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.tableProducts.filter = filterValue.trim().toLowerCase();
-    console.log(this.tableProducts)
     if (this.tableProducts.paginator) {
       this.tableProducts.paginator.firstPage();
     }
@@ -86,7 +85,7 @@ export class TableComponent implements AfterViewInit, OnInit{
   }
   addRowData(row_obj: Products){
    this.tableProducts.filteredData.push({
-      id: this.tableProducts.filteredData.length + 1,
+      id: this.tableProducts.filteredData.length + 1 ,
       name:row_obj.name,
       price: 15,
       isChosen: false,

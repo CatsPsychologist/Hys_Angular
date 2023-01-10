@@ -9,7 +9,8 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit{
-  public products:Products[] = products;
+  productCaption: string = 'Product'
+  singleProduct:Products[] = products;
   public id: number;
   items: Products[];
 
@@ -19,6 +20,7 @@ export class ProductComponent implements OnInit{
 
   ngOnInit(): void {
      this.id = parseInt(this.route.snapshot.paramMap.get('id')!) - 1;
+     this.singleProduct = products.slice(this.id , this.id + 1)
   }
   addToCart(product: Products) {
     product.isChosen = !product.isChosen;
