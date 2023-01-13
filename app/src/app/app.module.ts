@@ -1,24 +1,26 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-// import ErrorsModule
-// import { ErrorsComponent } from './pages/errors/errors.component';
 import {SharedModule} from "./pages/shop/shared/shared.module";
+
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import { UahPipe } from './shared/pipes/uah.pipe';
+import {ErrorsModule} from "./pages/errors/errors.module";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
+    UahPipe,
   ],
-
   imports: [
-    BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
+    ErrorsModule,
+    HttpClientModule
   ],
-
   providers: [],
   bootstrap: [AppComponent]
 })

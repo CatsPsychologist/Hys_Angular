@@ -10,7 +10,6 @@ import { SharedModule} from "./shared/shared.module";
 import {ShopComponent} from "./shop.component";
 import {CartService} from "./shared/services/cart.service";
 import {ShopRoutingModule} from "./shop-routing.module";
-import { TooltipComponent } from './tooltip/tooltip.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,6 @@ import { TooltipComponent } from './tooltip/tooltip.component';
     HomeComponent,
     ProductsComponent,
     ProductComponent,
-    TooltipComponent
   ],
     exports: [
         ShopComponent,
@@ -28,7 +26,7 @@ import { TooltipComponent } from './tooltip/tooltip.component';
     CommonModule,
     ShopRoutingModule,
     SharedModule,
-    RouterModule
+    RouterModule,
   ],
   providers: [
     CartService

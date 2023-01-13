@@ -1,0 +1,27 @@
+<section class="product">
+  <div class="container">
+    <div class="product_wrapper">
+      <h1 class="product_caption">
+        {{caption}}
+      </h1>
+      <ul class="product_list">
+        <li *ngFor="let product of products"  class="product_item">
+          <h2 class="item_caption"
+            [routerLink]="['/products',product.identifier]" >
+            {{product.name}}
+          </h2>
+          <p class="item_price">
+            {{product.price | currency: "₴"}}
+          </p>
+          <button class="item_btn" (click)="addToCart(product)">
+            {{product.isChosen ? 'remove' : 'add' }}
+          </button>
+        </li>
+      </ul>
+      <button class="product_load"[routerLink]="['/products']" >
+        Load more
+      </button>
+    </div>
+  </div>
+</section>
+

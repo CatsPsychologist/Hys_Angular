@@ -1,13 +1,13 @@
-<div  class="cart_hover" >
+<div  class="cart_hover" *ngIf="total$" >
   <ul  class="cart_list">
     <li *ngFor="let item of items"  class="cart_item">
       <ng-container *ngIf="item.isChosen">
         <div class="item_info">
           <h2 [routerLink]="['/products',item.id]" class="item_caption">
-            Product #{{item.id}}
+            {{item.name}}
           </h2>
           <p class="item_price">
-            {{item.price}}
+            {{item.price | currency: "₴"}}
           </p>
         </div>
         <div class="cart_amount">
@@ -22,7 +22,7 @@
     </li>
   </ul>
   <p class="item_total">Total :
-    {{total$ | async}}
+    {{total$ | async | currency: "₴"}}
   </p>
 </div>
 

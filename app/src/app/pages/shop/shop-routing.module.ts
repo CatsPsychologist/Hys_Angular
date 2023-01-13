@@ -33,10 +33,10 @@ const routes: Routes = [
         pathMatch: 'full',
         component: ProductsComponent
       },
-      { path: '**',
-        pathMatch: 'full',
-        component: ErrorsComponent
-      }
+      // { path: 'products/**',
+      //   pathMatch: 'full',
+      //   component: ErrorsComponent
+      // }
     ]
   },
 ];

@@ -1,0 +1,21 @@
+<header class="header">
+  <div class="header_wrapper">
+    <nav class="header_navigation">
+      <ul class="header_list">
+        <li [routerLink]="['/']" class="header_list_item header_logo">
+          <a  class="header_list_link logo"></a>
+        </li>
+        <li class="header_list_item">
+          <a [routerLink]="['users']" class="header_list_link">Users</a>
+        </li>
+        <li class="header_list_item">
+          <a [routerLink]="['products']" class="header_list_link">Products</a>
+        </li>
+        <li class="header_list_item">
+          <a class="header_list_link">Log out</a>
+        </li>
+      </ul>
+    </nav>
+    <button [routerLink]="['/']" class="back_landing"> Landing </button>
+  </div>
+</header>

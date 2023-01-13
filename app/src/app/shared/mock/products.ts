@@ -1,36 +1,43 @@
 export const products = [
   {
     id: 1,
-    name: 'Elon',
-    price: 50,
+    name: 'iPhone 13',
+    price: 1300,
     isChosen : false,
     amount: 1
   },
   {
     id: 2,
-    name: 'Jeff',
-    price: 20,
+    name: 'iPad pro',
+    price: 1000,
     isChosen : false,
     amount: 1
   },
   {
     id: 3,
-    name: 'Mark',
-    price: 30,
+    name: 'iMac',
+    price: 3000,
     isChosen : false,
     amount: 1
   },
   {
     id: 4,
-    name: 'Jora',
-    price: 60,
+    name: 'MacBOOk',
+    price: 1800,
     isChosen : false,
     amount: 1
   },
   {
     id: 5,
-    name: 'Jora',
-    price: 40,
+    name: 'iPencil',
+    price: 100,
+    isChosen : false,
+    amount: 1
+  },
+  {
+    id: 6,
+    name: 'Magic Mouse',
+    price: 150,
     isChosen : false,
     amount: 1
   }
