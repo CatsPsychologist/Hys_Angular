@@ -28,9 +28,4 @@ export class ProductsComponent implements OnInit{
 
   }
 
-  // priceInputFilter({value, number} : any ){
-  //   this.productsCall = this.FilterService.priceInputFilter(this.productsCall, value, number)
-  // }
-
-
 }

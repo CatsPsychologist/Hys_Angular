@@ -1,12 +1,9 @@
-<!--<div *ngIf="isLoaded; else loading">-->
-<!--  <app-table-->
-<!--    (newItemEvent)="priceInputFilter($event)"-->
-<!--    [products]="productsCall"-->
-<!--  ></app-table>-->
-  <app-table></app-table>
-<!--</div>-->
-
-<!--<ng-template #loading>-->
-<!--  <app-loader ></app-loader>-->
-<!--</ng-template>-->
+<app-nav></app-nav>
+<div *ngIf="isLoaded; else loading">
+  <app-table>
+  </app-table>
+</div>
+<ng-template #loading>
+  <app-loader ></app-loader>
+</ng-template>
 

@@ -16,7 +16,7 @@ const routes: Routes = [
         component: UsersComponent
       },
       {
-        path: 'products',
+        path: '',
         pathMatch: "full",
         loadChildren: () =>
           import('./products/products.module').then((m) => m.ProductsModule),

@@ -3,7 +3,8 @@ export interface Products{
   name: string,
   price: number,
   isChosen: boolean,
-  amount: number
+  amount: number,
+  identifier?: number,
 }
 export interface ProductsHttp{
   "name": string,

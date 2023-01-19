@@ -46,4 +46,16 @@ export class CartService {
   cartCounter(){
     this.getTotal(this.items);
   }
+
+  checkCart(product: any){
+    product.isChosen = false;
+    if(this.getItems().length > 0){
+      this.getItems()
+        .map(cartProduct => {
+          if(cartProduct.identifier === product.identifier){
+            product.isChosen = true;
+          }
+        })
+    }
+  }
 }

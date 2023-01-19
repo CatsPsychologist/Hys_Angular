@@ -4,6 +4,7 @@ import {Products} from "../../../shared/models/products.interface";
 import {ActivatedRoute} from "@angular/router";
 import {Subscription} from "rxjs";
 import {ProductHTTPService} from "../../admin/shared/services/product-http.service";
+import {CartService} from "../shared/services/cart.service";
 
 @Component({
   selector: 'app-product',
@@ -19,7 +20,8 @@ export class ProductComponent implements OnInit, OnDestroy{
 
   constructor(
     private route: ActivatedRoute,
-    private httpService: ProductHTTPService
+    private httpService: ProductHTTPService,
+    private cartService: CartService
   ) {}
 
   ngOnInit() {
@@ -27,15 +29,13 @@ export class ProductComponent implements OnInit, OnDestroy{
       .subscribe(productList => {
         this.singleProduct = productList
 
-        this.singleProduct.forEach((value: any, index: number) => {
-          value.isChosen = false;
-          value.amount = 1;
-          value.identifier = index + 1
+        this.singleProduct.forEach((product: any, index: number) => {
+          product.amount = 1;
+          product.identifier = index + 1;
+          this.cartService.checkCart(product);
         })
         this.identifier = parseInt(this.route.snapshot.paramMap.get('id')!) ;
         this.singleProduct = this.singleProduct.slice(this.identifier - 1 , this.identifier)
-        console.log(this.singleProduct)
-        console.log(this.identifier )
       })
 
   }

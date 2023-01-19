@@ -3,6 +3,8 @@ import {Products} from "../../../shared/models/products.interface";
 import {products} from "../../../shared/mock/products";
 import {ProductHTTPService} from "../../admin/shared/services/product-http.service";
 import {Observable, Subscription} from "rxjs";
+import {CartService} from "../shared/services/cart.service";
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -14,26 +16,33 @@ export class HomeComponent implements OnInit, OnDestroy{
   private _subscription : Subscription;
 
   constructor(
-    private httpService: ProductHTTPService
+    private httpService: ProductHTTPService,
+    private cartService: CartService,
   ) {}
 
   ngOnInit() {
+
     this._subscription = this.httpService.getList()
       .subscribe(productList => {
-        this.productsHome = productList
+        this.productsHome = productList;
 
-        this.productsHome = this.productsHome.slice(0,3)
-        this.productsHome.forEach((value: any, index: number) => {
-          value.isChosen = false;
-          value.amount = 1;
-          value.identifier = index + 1
+        this.productsHome = this.productsHome.slice(0,3);
+        this.productsHome.forEach((product: any, index: number) => {
+
+
+          product.amount = 1;
+          product.identifier = index + 1
+          this.cartService.checkCart(product);
         })
-        console.log(this.productsHome)
-      })
+      });
+  }
+
+  checkCartItems(){
+    return this.cartService.getItems();
   }
 
   ngOnDestroy() {
-    this._subscription.unsubscribe()
+    this._subscription.unsubscribe();
   }
 
 }
