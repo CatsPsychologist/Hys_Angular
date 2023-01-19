@@ -17,7 +17,8 @@ export class ProductsComponent implements OnInit, OnDestroy{
   private _subscription : Subscription;
 
   constructor(
-    private httpService: ProductHTTPService
+    private httpService: ProductHTTPService,
+    private cartService: CartService
   ) {}
 
   ngOnInit() {
@@ -25,14 +26,15 @@ export class ProductsComponent implements OnInit, OnDestroy{
       .subscribe(productList => {
         this.products = productList as Observable<any>
 
-        this.products.forEach((value: any, index: number) => {
-          value.isChosen = false;
-          value.amount = 1;
-          value.identifier = index + 1
+        this.products.forEach((product: any, index: number) => {
+
+          product.amount = 1;
+          product.identifier = index + 1;
+          this.cartService.checkCart(product);
         })
-        console.log(this.products)
       })
   }
+
 
   ngOnDestroy() {
     this._subscription.unsubscribe()

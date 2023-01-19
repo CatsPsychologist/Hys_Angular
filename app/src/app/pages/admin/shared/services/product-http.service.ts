@@ -15,4 +15,20 @@ export class ProductHTTPService {
   getList<T>(): Observable<T>{
        return this.http.get<T>(this.url)
   }
+
+  // getById<T>(id: number): Observable<T> {
+  //   return this.http.get<T>(this.url);
+  // }
+  //
+  // update<T>(product): Observable<T> {
+  //   return this.http.put(this.url);
+  // }
+  //
+  // create<T>(product): Observable<T> {
+  //   return this.http.post(this.url);
+  // }
+  //
+  // delete<T>(product): Observable<T> {
+  //   return this.http.delete(this.url);
+  // }
 }

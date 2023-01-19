@@ -1,6 +1,6 @@
-import {Component, EventEmitter, Input, OnInit, Output, ViewChild, AfterViewInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild, AfterViewInit, OnDestroy} from '@angular/core';
 import {Products} from "../../../../shared/models/products.interface";
-import {products} from "../../../../shared/mock/products";
+// import {products} from "../../../../shared/mock/products";
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
@@ -8,16 +8,17 @@ import {MatTable} from "@angular/material/table";
 import {MatDialog} from "@angular/material/dialog"
 import {DialogBoxComponent} from "../dialog-box/dialog-box.component";
 import {ProductHTTPService} from "../services/product-http.service";
+import {Subscription} from "rxjs";
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss']
 })
-export class TableComponent implements AfterViewInit, OnInit{
+export class TableComponent implements AfterViewInit, OnInit, OnDestroy{
   // dataSource:Products[];
   // @Output() newItemEvent = new EventEmitter<{value : string, number : number}>()
-
+  products: any;
 
   displayedColumns: string[] = ['id', 'name', 'price', 'action', 'add_btn'];
 
@@ -27,22 +28,34 @@ export class TableComponent implements AfterViewInit, OnInit{
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatTable) table: MatTable<Products>;
 
+
+  private _subscription : Subscription;
+
   constructor(
     public dialog: MatDialog,
     private httpService: ProductHTTPService
   ) {
-    this.tableProducts = new MatTableDataSource(products);
+
   }
 
   ngAfterViewInit() {
-    this.tableProducts.paginator = this.paginator;
-    this.tableProducts.sort = this.sort;
+
   }
 
   ngOnInit() {
-    // this.httpService.getList().subscribe(productList => {
-    //   console.log(productList)
-    // })
+    this._subscription = this.httpService.getList()
+      .subscribe(productList => {
+        this.products = productList
+        console.log(this.products)
+        this.products.forEach((value: any, index: number) => {
+          value.isChosen = false;
+          value.amount = 1;
+          value.identifier = index + 1
+        })
+        this.tableProducts = new MatTableDataSource(this.products);
+        this.tableProducts.paginator = this.paginator;
+        this.tableProducts.sort = this.sort;
+      })
   }
 
   applyFilter(event: Event) {
@@ -57,7 +70,8 @@ export class TableComponent implements AfterViewInit, OnInit{
     obj.action = action;
     const dialogRef = this.dialog.open(DialogBoxComponent, {
       width: '250px',
-      data:obj
+      data:obj,
+      panelClass: 'custom-modalbox'
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -99,6 +113,10 @@ export class TableComponent implements AfterViewInit, OnInit{
     this.tableProducts = new MatTableDataSource(this.tableProducts.filteredData)
     this.table.renderRows();
 
+  }
+
+  ngOnDestroy() {
+    this._subscription.unsubscribe()
   }
 
 }

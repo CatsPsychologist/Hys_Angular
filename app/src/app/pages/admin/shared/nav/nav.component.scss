@@ -3,6 +3,7 @@
   height: 100vh;
   background: #B3B3B3;
   position: absolute;
+  z-index: 1;
   &_wrapper{
     display: flex;
     flex-direction: column;
