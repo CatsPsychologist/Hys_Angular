@@ -28,7 +28,6 @@ export class TableComponent implements AfterViewInit, OnInit, OnDestroy{
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatTable) table: MatTable<Products>;
 
-
   private _subscription : Subscription;
 
   constructor(
@@ -38,16 +37,12 @@ export class TableComponent implements AfterViewInit, OnInit, OnDestroy{
 
   }
 
-  ngAfterViewInit() {
-
-  }
-
   ngOnInit() {
     this._subscription = this.httpService.getList()
       .subscribe(productList => {
         this.products = productList
         console.log(this.products)
-        this.products.forEach((value: any, index: number) => {
+        this.products.forEach((value: Products, index: number) => {
           value.isChosen = false;
           value.amount = 1;
           value.identifier = index + 1
@@ -56,6 +51,14 @@ export class TableComponent implements AfterViewInit, OnInit, OnDestroy{
         this.tableProducts.paginator = this.paginator;
         this.tableProducts.sort = this.sort;
       })
+
+  }
+
+  ngAfterViewInit() {
+    if(this.tableProducts){
+        this.tableProducts.paginator = this.paginator;
+        this.tableProducts.sort = this.sort;
+    }
   }
 
   applyFilter(event: Event) {
@@ -77,7 +80,7 @@ export class TableComponent implements AfterViewInit, OnInit, OnDestroy{
     dialogRef.afterClosed().subscribe(result => {
       if(result.event == 'Delete'){
         this.deleteRowData(result.data);
-        this.table.renderRows()
+        // this.table.renderRows()
       }else if(result.event == 'Update'){
         this.updateRowData(result.data)
       }else if(result.event == 'Add'){
@@ -87,12 +90,13 @@ export class TableComponent implements AfterViewInit, OnInit, OnDestroy{
   }
 
   deleteRowData(row_obj: Products){
-    this.tableProducts = new MatTableDataSource(this.tableProducts.filteredData
-      .filter(value => value.id != row_obj.id))
-    console.log(this.tableProducts.filteredData)
+    this.tableProducts.filteredData = this.tableProducts.filteredData
+      .filter(value => value.id != row_obj.id);
+    this.tableProducts.data = this.tableProducts.filteredData;
   }
+
   updateRowData(row_obj: Products){
-    this.tableProducts = new MatTableDataSource(this.tableProducts.filteredData
+    this.tableProducts.filteredData = this.tableProducts.filteredData
       .filter((value,key)=>{
       if(value.id == row_obj.id){
         value.name = row_obj.name;
@@ -100,19 +104,17 @@ export class TableComponent implements AfterViewInit, OnInit, OnDestroy{
       }
       return true;
     })
-    )
+    this.tableProducts.data = this.tableProducts.filteredData;
   }
   addRowData(row_obj: Products){
-   this.tableProducts.filteredData.push({
+    this.tableProducts.filteredData.push({
       id: this.tableProducts.filteredData.length + 1 ,
       name:row_obj.name,
       price: row_obj.price,
       isChosen: false,
       amount: 1
     })
-    this.tableProducts = new MatTableDataSource(this.tableProducts.filteredData)
-    this.table.renderRows();
-
+    this.tableProducts.data = this.tableProducts.filteredData;
   }
 
   ngOnDestroy() {

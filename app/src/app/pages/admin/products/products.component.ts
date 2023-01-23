@@ -19,12 +19,14 @@ export class ProductsComponent implements OnInit{
   ) {}
 
   ngOnInit() {
-    of(products)
-      .pipe(delay(2000))
-      .subscribe(prod => {
-        this.productsCall = prod;
-        this.isLoaded = true
-      })
+    this.isLoaded = true
+
+    // of(products)
+    //   .pipe(delay(2000))
+    //   .subscribe(prod => {
+    //     this.productsCall = prod;
+    //     this.isLoaded = true
+    //   })
 
   }
 
